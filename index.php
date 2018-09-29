@@ -3,10 +3,9 @@
 $con = mysqli_connect("localhost", "root", "", "snake");
 if(mysqli_connect_errno()){
 	echo "Failed to connect: " .mysqli_connect_errno();
-} else{
-	echo "connected ok";
-}
+} 
 
+$query = mysqli_query($con, "INSERT INTO accounts VALUES('1', 'Gilberto')");
 
 
  ?>
