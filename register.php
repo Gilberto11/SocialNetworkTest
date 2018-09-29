@@ -45,6 +45,53 @@ if(isset($_POST['register_button'])){
 	$password2 = strip_tags($_POST['reg_password2']); //Remove html tags
 
 	$date = date("Y-m-d");
+
+	if($em == $em2){
+		//Check if the email have valid format
+		if(filter_var($em, FILTER_VALIDATE_EMAIL)){
+			$em = filter_var($em, FILTER_VALIDATE_EMAIL);
+
+			//Check if email already exist
+			$e_check = mysqli_query($con, "SELECT email FROM users WHERE email= '$em'");
+
+			//Count the number of rows returned
+			$num_rows = mysqli_num_rows($e_check);
+
+			if($num_rows > 0){
+				echo "Email already used";
+			}
+
+		}
+		else{
+			echo "Invalid format";
+		}
+
+	}
+	else{
+		echo "Emails don't match";
+	}
+
+	if(srtlen($fname) > 25 || strlen($fname) <2){
+
+		echo "Your first name must be between 2 and 25 characters";
+	}
+
+	if(strlen($lname) > 25 || strlen($lname) <2){
+		echo "Your first name must be between 2 and 25 characters";
+	}
+
+	if($password != $password2){
+		echo "Your passwords do not match";
+	}
+	else{
+		if(preg_match('/[^A-Za-z0-9]/', $password)){
+			echo "Your password can only contain english characters or numbers";
+		}
+	}
+
+	if(strlen($password > 30 || strlen($password) <5)){
+		echo "Your password must be between 5 and 30 characters";
+	}
 }
 
 
@@ -63,11 +110,11 @@ if(isset($_POST['register_button'])){
 		<br>
 		<input type= "text" name="reg_email" placeholder="Email" required>
 		<br>
-		<input type= "text" name="reg_email2" placeholder="Confir Email" required>
+		<input type= "text" name="reg_email2" placeholder="Confirm Email" required>
 		<br>
 		<input type= "text" name="reg_password" placeholder="Password" required>
 		<br>
-		<input type= "text" name="reg_password2" placeholder="Confir Password" required>
+		<input type= "text" name="reg_password2" placeholder="Confirm Password" required>
 		<br>
 		<input type="submit" name="register_button" value = "Register">
 
