@@ -112,6 +112,23 @@ if(isset($_POST['register_button'])){
 			$username = $username . "_" . $i;
 			$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username= '$username'");
 		}
+
+		//profile pct assignment
+		$rand = rand(1,5); //create a random number between 1 and 5
+
+		if($rand = 1)
+		$profile_pic = "assets/images/profile_pics/defaults/head_alizarin.png";
+		else if($rand = 2)
+		$profile_pic = "assets/images/profile_pics/defaults/head_amethyst.png";
+	else if($rand = 3)
+		$profile_pic = "assets/images/profile_pics/defaults/head_belize_hole.png";
+	else if($rand = 4)
+		$profile_pic = "assets/images/profile_pics/defaults/head_carrot.png";
+	else if($rand = 5)
+		$profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
+
+	$query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')"); 
+
 	}
 
 }
@@ -124,6 +141,10 @@ if(isset($_POST['register_button'])){
 	<title>Welcome to Snake Social Media</title>
 </head>
 <body>
+  
+<div class="container">
+
+</div>
 
 	<form action = "register.php" method="POST">
 		<input type= "text" name="reg_fname" placeholder="First Name" value= "<?php 
@@ -176,10 +197,6 @@ if(isset($_POST['register_button'])){
 		 else if(in_array("Your password can only contain english characters or numbers<br>", $error_array)) echo "Your password can only contain english characters or numbers<br>"; 
 		 else if(in_array("Your password must be between 5 and 30 characters<br>", $error_array)) echo "Your password must be between 5 and 30 characters<br>"; ?>
 		<input type="submit" name="register_button" value = "Register">
-
-
 	</form>
-
-
 </body>
 </html>
