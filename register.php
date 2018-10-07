@@ -1,9 +1,6 @@
 <?php
-session_start();
-$con = mysqli_connect("localhost", "root", "", "snake");
-if(mysqli_connect_errno()){
-	echo "Failed to connect: " .mysqli_connect_errno();
-} 
+
+require 'config/config.php';
 
 //Declaring Variables to prevent errors
 
