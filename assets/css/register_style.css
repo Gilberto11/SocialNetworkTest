@@ -22,6 +22,12 @@ body{
 	padding 0;
 }
 
+a {
+	text-decoration: none;
+	color: #3CB371
+	;
+}
+
 .wrapper{
 	background-image: url("../images/backgrounds/snake3.jpg");
 	background-size: 100%;
@@ -94,5 +100,10 @@ input[type = "text"], input[type = "email"], input[type = "password"]{
 
 input[type = "text"]:hover, input[type = "email"]:hover, input[type = "password"]:hover{
 	border-color: #3CB371;
+
+}
+
+#second{
+	display: none;
 
 }
