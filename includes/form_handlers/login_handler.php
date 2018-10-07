@@ -19,6 +19,10 @@ if(isset($_POST['login_button'])){
 		header("Location: index.php");
 		exit();
 	}
+	else{
+
+		array_push($error_array, "Email or Password invalid<br>");
+	}
 
 }
 

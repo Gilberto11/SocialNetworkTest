@@ -11,7 +11,7 @@ require 'config/config.php';
 
 	<body>
 	
-	TEST
+	Your are Logged In!
 
 
 
