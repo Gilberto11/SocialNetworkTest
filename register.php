@@ -20,8 +20,7 @@ require 'includes/form_handlers/login_handler.php';
 
 		<div class="login_box">
 			<div class= "login_header">
-			<h1> Snake Social Media </h1>
-			<br>
+			<h1> Snake </h1>
 			Login or Sign Up
 		</div>
 
