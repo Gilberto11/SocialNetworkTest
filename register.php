@@ -1,6 +1,7 @@
 <?php
 
 require 'config/config.php';
+require 'includes/form_handlers/login_handler.php';
 require 'includes/form_handlers/register_handler.php';
 
 //Declaring Variables to prevent errors
@@ -18,7 +19,7 @@ require 'includes/form_handlers/register_handler.php';
   		<br>
   		<input type= "password" name = "log_password" placeholder = "Password">
   		<br>
-  		<input type = "submit" name = "login_button" value = Login">
+  		<input type = "submit" name = "login_button" value = Login>
   	</form>
 
 	<form action = "register.php" method="POST">
